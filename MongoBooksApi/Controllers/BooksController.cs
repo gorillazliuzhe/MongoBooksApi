@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace MongoBooksApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class BooksController : ControllerBase
     {
@@ -17,8 +17,7 @@ namespace MongoBooksApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Book>> Get() =>
-            _bookService.Get();
+        public ActionResult<List<Book>> Get() => _bookService.Get();
 
         [HttpGet("{id:length(24)}", Name = "GetBook")]
         public ActionResult<Book> Get(string id)
